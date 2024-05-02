@@ -2,15 +2,15 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
-import redblue from '../../assets/banners/redblue.png'
-const RecentPlayed = () => {
+import redblue from '../../assets/banners/4.png'
+const RecentPlayed = ({navigation}) => {
   const [fontsLoaded, fontError] = useFonts({
     "Jersey15-Regular": require("../../assets/fonts/Jersey_15/Jersey15-Regular.ttf"),
   });
   return (
     <>
       <View style={styles.container}>
-        <Image source={redblue} style={{width:'100%',height:'100%'}} />
+        <Image source={redblue} style={{width:'100%',height:'100%',borderRadius:20}} />
         <TouchableOpacity
           style={{
             position: "absolute",
@@ -20,6 +20,7 @@ const RecentPlayed = () => {
             right: 0,
             marginHorizontal: 20,
           }}
+          onPress={()=>navigation.navigate('RedBlue')}
         >
           <LinearGradient
             // Button Linear Gradient
@@ -44,18 +45,18 @@ const styles = StyleSheet.create({
     height: 300,
 
     borderRadius: 20,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "#fff",
+    // padding: 10,
+    // borderWidth: 1,
+    // borderColor: "#fff",
   },
   text: {
     color: "white",
     fontFamily: "Jersey15-Regular",
-    fontSize: 40,
+    fontSize: 30,
     textAlign: "center",
   },
   button: {
-    padding: 3,
+    // padding:1,
     borderRadius: 20,
   },
 });
