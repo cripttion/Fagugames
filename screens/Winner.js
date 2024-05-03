@@ -23,7 +23,7 @@ const Winner = ({navigation,route}) => {
   )
 }
 
-export default Winner
+export default Winner;
 
 const styles = StyleSheet.create({
     container:{

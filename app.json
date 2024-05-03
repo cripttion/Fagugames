@@ -21,15 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#000000"
-      }
+      },
+      "package": "com.cripttion.faguGame"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-      
-    ]
-
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "1fa57fa6-2b3c-4488-a009-45563ceb14d6"
+      }
+    }
   }
 }

@@ -13,19 +13,15 @@ import { Audio } from 'expo-av';
     const [sound, setSound] = useState();
     const[emptyBox,setEmptyBox] = useState(9);
     async function playSound() {
-      // console.log('Loading Sound');
       const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/clickSound.mp3')
       );
       setSound(sound);
   
-      // console.log('Playing Sound');
       await sound.playAsync();
     }
     async function playEndSound() {
-      // console.log('Loading Sound');
       const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/gameTie.mp3')
       );
-      // console.log('Playing Sound');
       await sound.playAsync();
     }
     const restartGame = () => {

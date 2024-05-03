@@ -18,11 +18,9 @@ const TruthDare = () => {
   const [temp, setTemp] = useState(0);
   const [sound,setSound] = useState();
   async function playSound() {
-    // console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/bottleSpin.mp3')
     );
     setSound(sound);
-    // console.log('Playing Sound');
     await sound.playAsync();
   }
   const animatedStyle = useAnimatedStyle(() => ({
@@ -48,7 +46,6 @@ const TruthDare = () => {
       timer1 = setTimeout(() => {
         cancelAnimation(angle);
         if (sound) {
-          // console.log('Unloading Sound');
           sound.unloadAsync();
         }
       }, 3 * 1000);
@@ -57,7 +54,6 @@ const TruthDare = () => {
     return () => {
       clearTimeout(timer1);
       if (sound) {
-        // console.log('Unloading Sound');
         sound.unloadAsync();
       }
     };

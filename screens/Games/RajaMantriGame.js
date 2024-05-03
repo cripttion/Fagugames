@@ -208,9 +208,7 @@ const [gamescore ,setScore] = useState([]);
   }
  
 const [showScore,setShowScore] = useState(false);
-  // console.log(valueArray);
-  // console.log(tempArray);
-  // console.log(gamescore);
+
   return (
     <>
       <View style={styles.container}>

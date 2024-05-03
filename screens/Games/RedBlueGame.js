@@ -25,12 +25,10 @@ const RedBlueGame = ({ navigation, route }) => {
     setPlayer2Point(player2Point + 10);
   };
   async function playSound() {
-    // console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/gameover.mp3')
     );
     setSound(sound);
 
-    // console.log('Playing Sound');
     await sound.playAsync();
   }
   useEffect(() => {

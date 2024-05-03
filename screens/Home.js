@@ -16,10 +16,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from '@react-navigation/native';
 
 const Home = ({navigation}) => {
-  const [fontsLoaded, fontError] = useFonts({
-    "Jersey15-Regular": require("./../assets/fonts/Jersey_15/Jersey15-Regular.ttf"),
-  });
-  const [recentGame,setRecentGame] = useState("RedBlue");
+  
+const [recentGame,setRecentGame] = useState("RedBlue");
 
 useFocusEffect(
   useCallback(()=>{
