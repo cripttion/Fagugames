@@ -4,6 +4,7 @@ import rb from './../../assets/banners/3.png'
 import GradientText from '../../components/GradientText';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from "expo-linear-gradient";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const TicTac = ({navigation}) => {
 
@@ -34,12 +35,14 @@ const TicTac = ({navigation}) => {
               
               marginHorizontal: 20,
             }}
-            onPress={()=>navigation.navigate('TicTacGame',{
+            onPress={()=>{
+              AsyncStorage.setItem('RecentGame',"ZeroKatis")
+              navigation.navigate('TicTacGame',{
               playerData:{
                 firstPlayer:player1,
                 secondPlayer:player2
               }
-            })}
+            })}}
           >
             <LinearGradient
               // Button Linear Gradient

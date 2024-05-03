@@ -15,6 +15,9 @@ import Animated, {
 import { FontAwesome } from "@expo/vector-icons";
 import RmScore from "./components/RmScore";
 import { FontAwesome5 } from '@expo/vector-icons';
+
+import { Audio } from 'expo-av';
+
 const RajaMantriGame = ({ route, navigation }) => {
   const { playerData } = route.params;
   const box1 = useSharedValue(0);
@@ -38,6 +41,21 @@ const RajaMantriGame = ({ route, navigation }) => {
 
   const [box4Press, setBox4Press] = useState(false);
 
+  async function playSound() {
+
+    const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/clickSound.mp3')
+    );
+
+    await sound.playAsync();
+  }
+
+  async function playSpinSound() {
+
+    const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/paperFlip.mp3')
+    );
+
+    await sound.playAsync();
+  }
   const spinAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${sv.value * 360}deg` }],
   }));
@@ -104,6 +122,7 @@ const RajaMantriGame = ({ route, navigation }) => {
   }
   const startAnimation = async () => {
     const xx = getRandomArray();
+    playSpinSound();
     setValueArray(xx);
     setBox1Press(false);
     setBox2Press(false);
@@ -133,6 +152,7 @@ const [gamescore ,setScore] = useState([]);
 
   const choicePressed = (value)=>{
       setChoiceSelected(true);
+      playSound();
       let score;
       if(valueArray[value]===2)
       {
@@ -190,7 +210,7 @@ const [gamescore ,setScore] = useState([]);
 const [showScore,setShowScore] = useState(false);
   // console.log(valueArray);
   // console.log(tempArray);
-  console.log(gamescore);
+  // console.log(gamescore);
   return (
     <>
       <View style={styles.container}>
@@ -199,6 +219,7 @@ const [showScore,setShowScore] = useState(false);
             <TouchableOpacity
               style={{ height: 100 }}
               onPress={() => {
+                playSound();
                 setBox1Press(true);
               }}
             >
@@ -280,7 +301,7 @@ const [showScore,setShowScore] = useState(false);
                   </Text>
                 </View>
               )}
-              {choiceSelected&&!box1Press&&<>
+              {choiceSelected&&(valueArray[0]!==0 && valueArray[0]!==3)&&<>
                 <>
                   <View
                     style={{
@@ -341,6 +362,7 @@ const [showScore,setShowScore] = useState(false);
             <TouchableOpacity
               style={{ height: 100 }}
               onPress={() => {
+                playSound();
                 setBox2Press(true);
               }}
             >
@@ -392,7 +414,7 @@ const [showScore,setShowScore] = useState(false);
                   </Text>
                 </View>
               )}
-               {choiceSelected&&!box2Press&&<>
+               {choiceSelected&&(valueArray[1]!==0 && valueArray[1]!==3)&&<>
                 <>
                   <View
                     style={{
@@ -452,6 +474,7 @@ const [showScore,setShowScore] = useState(false);
             <TouchableOpacity
               style={{ height: 100 }}
               onPress={() => {
+                playSound();
                 setBox3Press(true);
               }}
             >
@@ -531,7 +554,7 @@ const [showScore,setShowScore] = useState(false);
                   </Text>
                 </View>
               )}
-               {choiceSelected&&!box3Press&&<>
+               {choiceSelected&&(valueArray[2]!==0 && valueArray[2]!==3)&&<>
                 <>
                   <View
                     style={{
@@ -563,7 +586,7 @@ const [showScore,setShowScore] = useState(false);
                 </>}
             </TouchableOpacity>
             {box3Press && valueArray[2] === 3 && (
-              <View style={styles.twoButton}>
+              <View style={styles.twoButton1}>
                 <TouchableOpacity
                   style={{
                     backgroundColor: "white",
@@ -591,6 +614,7 @@ const [showScore,setShowScore] = useState(false);
             <TouchableOpacity
               style={{ height: 100 }}
               onPress={() => {
+                playSound();
                 setBox4Press(true);
               }}
             >
@@ -669,7 +693,7 @@ const [showScore,setShowScore] = useState(false);
                   </Text>
                 </View>
               )}
-               {choiceSelected&&!box4Press&&<>
+               {choiceSelected&&(valueArray[3]!==0 && valueArray[3]!==3)&&<>
                 <>
                   <View
                     style={{
@@ -849,5 +873,12 @@ const styles = StyleSheet.create({
     bottom:0,
     left:0,
     right:0
+  },
+  twoButton1:{
+    position: "absolute",
+    top: 10,
+    right: -40,
+    flexDirection: "column",
+    gap: 10,
   }
 });

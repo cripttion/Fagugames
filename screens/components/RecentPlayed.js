@@ -2,15 +2,19 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
-import redblue from '../../assets/banners/4.png'
-const RecentPlayed = ({navigation}) => {
+import RedBlue from '../../assets/banners/4.png'
+import TruthDare from '../../assets/banners/1.png';
+import TicTac from '../../assets/banners/3.png';
+import Rajamtri from '../../assets/banners/2.png';
+const RecentPlayed = ({navigation,game}) => {
   const [fontsLoaded, fontError] = useFonts({
     "Jersey15-Regular": require("../../assets/fonts/Jersey_15/Jersey15-Regular.ttf"),
   });
+ 
   return (
     <>
       <View style={styles.container}>
-        <Image source={redblue} style={{width:'100%',height:'100%',borderRadius:20}} />
+        <Image source={game==='TruthDare'?TruthDare:(game==='RedBlue'?RedBlue:(game==='RajaMantri'?Rajamtri:TicTac))} style={{width:'100%',height:'100%',borderRadius:20}} />
         <TouchableOpacity
           style={{
             position: "absolute",
@@ -20,7 +24,7 @@ const RecentPlayed = ({navigation}) => {
             right: 0,
             marginHorizontal: 20,
           }}
-          onPress={()=>navigation.navigate('RedBlue')}
+          onPress={()=>navigation.navigate(game)}
         >
           <LinearGradient
             // Button Linear Gradient
@@ -46,8 +50,8 @@ const styles = StyleSheet.create({
 
     borderRadius: 20,
     // padding: 10,
-    // borderWidth: 1,
-    // borderColor: "#fff",
+    borderWidth: 6,
+    borderColor: "#004aad",
   },
   text: {
     color: "white",

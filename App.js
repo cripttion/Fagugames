@@ -13,10 +13,19 @@ import RedBlueGame from "./screens/Games/RedBlueGame";
 import Winner from "./screens/Winner";
 import TicTacGame from "./screens/Games/TicTacGame";
 import RajaMantriGame from "./screens/Games/RajaMantriGame";
+import { useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const Stack = createNativeStackNavigator();
 export default function App() {
+
+  useEffect(()=>{
+    const setRecent = async()=>{
+      await AsyncStorage.setItem('RecentGame',"RedBlue")
+    }
+    setRecent();
+  },[])
   return (
     <SafeAreaView style={styles.container}>
        

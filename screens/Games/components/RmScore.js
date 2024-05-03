@@ -17,7 +17,8 @@ const sumData = data.reduce((acc, obj) => {
   }, {});
   return (
     <View style={{backgroundColor:'white'}}>
-        <View>
+        <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:20,marginVertical:20,alignItems:'center'}}>
+            <Text style={{fontSize:26,fontWeight:'bold'}}>Score</Text>
             <TouchableOpacity style={styles.closeButton} onPress={()=>closeScore(false)}>
             <FontAwesome name="window-close" size={40} color="red" />
             </TouchableOpacity>
@@ -77,12 +78,8 @@ const styles = StyleSheet.create({
   },
   closeButton:{
 
-   marginTop:5,
-   marginBottom:10,
-       // backgroundColor:'red',
-    padding:5,
    
-    flexDirection:"row-reverse",
+   
    
   }
 });

@@ -1,5 +1,5 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import logo from "./../assets/FUGU Plays/image.png";
 import { useFonts } from "expo-font";
@@ -12,11 +12,28 @@ import rb from './../assets/banners/3.png'
 import tic from './../assets/banners/4.png'
 import Earn from "./components/Earn";
 import Stats from "./components/Stats";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from '@react-navigation/native';
 
 const Home = ({navigation}) => {
   const [fontsLoaded, fontError] = useFonts({
     "Jersey15-Regular": require("./../assets/fonts/Jersey_15/Jersey15-Regular.ttf"),
   });
+  const [recentGame,setRecentGame] = useState("RedBlue");
+
+useFocusEffect(
+  useCallback(()=>{
+    const updateRecentGame = async () => {
+      const data = await AsyncStorage.getItem("RecentGame");
+      setRecentGame(data);
+    };
+
+    updateRecentGame();
+    return () => {
+     
+    };
+  },[])
+)
   return (
     <SafeAreaView style={styles.container}>
        <ScrollView vertical showsVerticalScrollIndicator={false}>    
@@ -28,7 +45,7 @@ const Home = ({navigation}) => {
         </GradientText>
       </View>
       <View style={styles.heroSection}>
-        <RecentPlayed navigation={navigation} />
+        <RecentPlayed navigation={navigation} game={recentGame} />
         <View style={{flexDirection:"column",gap:20,flex:1}}>
             <Stats navigation={navigation}/>
             <Earn navigation={navigation}/>
@@ -39,7 +56,9 @@ const Home = ({navigation}) => {
         Explore Games
         </GradientText>
         <View  style={styles.gameSection}>
-            <TouchableOpacity style={styles.diffGames} onPress={()=>navigation.navigate('TruthDare')}>
+            <TouchableOpacity style={styles.diffGames} onPress={async()=>{
+              await AsyncStorage.setItem("RecentGame","TruthDare");
+              navigation.navigate('TruthDare')}}>
               <Image source={td} style={{width:'100%',height:'100%',borderRadius:20}} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.diffGames} onPress={()=>navigation.navigate('RajaMantri')}>

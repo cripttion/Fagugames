@@ -11,16 +11,26 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { FontAwesome } from "@expo/vector-icons";
+import { Audio } from 'expo-av';
 
 const TruthDare = () => {
   let angle = useSharedValue(0);
   const [temp, setTemp] = useState(0);
-
+  const [sound,setSound] = useState();
+  async function playSound() {
+    // console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/bottleSpin.mp3')
+    );
+    setSound(sound);
+    // console.log('Playing Sound');
+    await sound.playAsync();
+  }
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ rotate: `${angle.value * 360}deg` }],
   }));
 
   const startAnimation = () => {
+    playSound();
     angle.value=0;
     angle.value = withRepeat(
       withTiming(10+temp, { duration: 10000, easing: Easing.linear }),
@@ -33,14 +43,26 @@ const TruthDare = () => {
   };
 
   useEffect(() => {
-    let timer1 = setTimeout(() => {
-      cancelAnimation(angle);
-    }, 3 * 1000);
-
+    let timer1;
+    if (temp) {
+      timer1 = setTimeout(() => {
+        cancelAnimation(angle);
+        if (sound) {
+          // console.log('Unloading Sound');
+          sound.unloadAsync();
+        }
+      }, 3 * 1000);
+    }
+  
     return () => {
       clearTimeout(timer1);
+      if (sound) {
+        // console.log('Unloading Sound');
+        sound.unloadAsync();
+      }
     };
-  }, [temp]);
+  }, [temp, sound]);
+  
 
   return (
     <>

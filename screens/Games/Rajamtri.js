@@ -4,6 +4,7 @@ import rb from './../../assets/banners/2.png'
 import GradientText from '../../components/GradientText';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from "expo-linear-gradient";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Rajamtri = ({navigation}) => {
   const [player1,setPlayer1] = useState("");
@@ -38,14 +39,18 @@ const Rajamtri = ({navigation}) => {
               
               marginHorizontal: 20,
             }}
-            onPress={()=>navigation.navigate('RajaMantriGame',{
+            onPress={async()=>{
+              await AsyncStorage.setItem("RecentGame","RajaMantri")
+              navigation.navigate('RajaMantriGame',{
               playerData:{
                 firstPlayer:player1,
                 secondPlayer:player2,
                 thirdPlayer:player3,
                 fourthPlayer:player4
               }
-            })}
+            })
+          }
+          }
           >
             <LinearGradient
               // Button Linear Gradient
