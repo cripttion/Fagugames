@@ -2,14 +2,12 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
-import RedBlue from '../../assets/banners/4.png'
-import TruthDare from '../../assets/banners/1.png';
-import TicTac from '../../assets/banners/3.png';
-import Rajamtri from '../../assets/banners/2.png';
+import RedBlue from '../../assets/4.png'
+import TruthDare from '../../assets/1.png';
+import TicTac from '../../assets/3.png';
+import Rajamtri from '../../assets/2.png';
 const RecentPlayed = ({navigation,game}) => {
-  const [fontsLoaded, fontError] = useFonts({
-    "Jersey15-Regular": require("../../assets/fonts/Jersey_15/Jersey15-Regular.ttf"),
-  });
+
  
   return (
     <>
@@ -55,12 +53,12 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontFamily: "Jersey15-Regular",
-    fontSize: 30,
+    fontSize: 20,
+    fontWeight:'bold',
     textAlign: "center",
   },
   button: {
-    // padding:1,
+    padding:4,
     borderRadius: 20,
   },
 });

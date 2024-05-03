@@ -1,6 +1,6 @@
 import { Image, ScrollView, StyleSheet, Text, TextInput, View,TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import rb from './../../assets/banners/2.png'
+import rb from './../../assets/2.png'
 import GradientText from '../../components/GradientText';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from "expo-linear-gradient";
@@ -59,7 +59,7 @@ const Rajamtri = ({navigation}) => {
               end={{ x: 0, y: 0.6 }}
               style={styles.button}
             >
-              <Text style={{fontSize:40,textAlign:'center',fontFamily:'Jersey15-Regular',color:'white'}}>START GAME</Text>
+              <Text style={{fontSize:20,textAlign:'center',color:'white',fontWeight:'bold'}}>START GAME</Text>
             </LinearGradient>
           </TouchableOpacity>
          </View>
@@ -77,10 +77,10 @@ const styles = StyleSheet.create({
     backgroundColor:'#000000'
   },
   text1:{
-    fontFamily:'Jersey15-Regular',
-    fontSize:40,
+    fontSize:30,
     marginHorizontal:10,
     marginTop:10,
+    fontWeight:'bold'
   },
   textBox:{
     borderWidth:6,
@@ -93,15 +93,16 @@ const styles = StyleSheet.create({
     marginVertical:10,
   },
   text:{
-    fontFamily:'Jersey15-Regular',
-    fontSize:40,
+    fontSize:20,
     marginHorizontal:10,
     marginTop:10,
-    color:'white'
+    color:'white',
+    textAlign:'center',
+    fontWeight:'bold'
   },
   button: {
     marginTop:50,
-    padding:20,
+    padding:10,
     borderRadius: 20,
   },
 })

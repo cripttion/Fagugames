@@ -25,7 +25,7 @@ const RedBlueGame = ({ navigation, route }) => {
     setPlayer2Point(player2Point + 10);
   };
   async function playSound() {
-    const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/gameover.mp3')
+    const { sound } = await Audio.Sound.createAsync( require('./../../assets/gameover.mp3')
     );
     setSound(sound);
 
@@ -62,8 +62,8 @@ const RedBlueGame = ({ navigation, route }) => {
         <Text
           style={{
             color: "white",
-            fontSize: 30,
-            fontFamily: "Jersey15-Regular",
+            fontSize: 25,
+            fontWeight:'bold'
           }}
         >
           {playerData.firstPlayer}
@@ -72,8 +72,8 @@ const RedBlueGame = ({ navigation, route }) => {
         <Text
           style={{
             color: "white",
-            fontSize: 30,
-            fontFamily: "Jersey15-Regular",
+            fontSize: 20,
+            fontWeight:'bold'
           }}
         >
           {player1Point}
@@ -83,8 +83,8 @@ const RedBlueGame = ({ navigation, route }) => {
         <Text
           style={{
             color: "white",
-            fontSize: 30,
-            fontFamily: "Jersey15-Regular",
+            fontSize: 25,
+            fontWeight:'bold'
           }}
         >
           {playerData.secondPlayer}
@@ -93,8 +93,8 @@ const RedBlueGame = ({ navigation, route }) => {
         <Text
           style={{
             color: "white",
-            fontSize: 30,
-            fontFamily: "Jersey15-Regular",
+            fontSize: 20,
+            fontWeight:'bold'
           }}
         >
           {player2Point}
@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
+    transform:[{rotate:'180deg'}]
   },
   palyer2: {
     marginHorizontal: 20,

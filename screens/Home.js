@@ -1,15 +1,15 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import logo from "./../assets/FUGU Plays/image.png";
+import logo from "./../assets/image.png";
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import GradientText from "../components/GradientText";
 import RecentPlayed from "./components/RecentPlayed";
-import td from './../assets/banners/1.png'
-import rm from './../assets/banners/2.png'
-import rb from './../assets/banners/3.png'
-import tic from './../assets/banners/4.png'
+import td from './../assets/1.png'
+import rm from './../assets/2.png'
+import rb from './../assets/3.png'
+import tic from './../assets/4.png'
 import Earn from "./components/Earn";
 import Stats from "./components/Stats";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -86,8 +86,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
   },
   text: {
-    fontSize: 60,
-    fontFamily:'Jersey15-Regular'
+    fontSize: 40,
+    marginRight:20,
+    fontWeight:'bold',
   },
   tophead: {
     flexDirection: "row",
@@ -103,8 +104,8 @@ const styles = StyleSheet.create({
 
   },
   text1:{
-    fontFamily:'Jersey15-Regular',
-    fontSize:40,
+    fontSize:30,
+    fontWeight:'bold'
   },
   diffGames:{
     marginVertical:5,

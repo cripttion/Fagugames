@@ -4,9 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from "expo-font";
 const Stats = ({navigation}) => {
-  const [fontsLoaded, fontError] = useFonts({
-    "Jersey15-Regular": require("../../assets/fonts/Jersey_15/Jersey15-Regular.ttf"),
-  });
+ 
   return (
     <TouchableOpacity style={styles.container} onPress={()=>navigation.navigate('GameData')}>
      <LinearGradient
@@ -14,7 +12,7 @@ const Stats = ({navigation}) => {
         colors={["#004aad", "#cb6ce6"]}
         style={styles.background}
       />
-         <Text  style={{color:'white',fontSize:30,fontFamily:'Jersey15-Regular',textAlign:'center'}}>Stats</Text>
+         <Text  style={{color:'white',fontSize:20,textAlign:'center',fontWeight:'bold'}}>Stats</Text>
         <Ionicons name="stats-chart" size={30} color="white" />
     </TouchableOpacity>
   )

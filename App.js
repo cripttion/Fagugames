@@ -21,9 +21,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  let [fontsLoaded] = useFonts({
-    'Jersey15-Regular': require('./assets/fonts/Jersey_15/Jersey15-Regular.ttf'),
-  });
+
 
   useEffect(() => {
     const setRecent = async () => {

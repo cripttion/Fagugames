@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   text:{
-    fontFamily:'Jersey15-Regular',
     fontSize:30,
     textAlign:'center',
     marginTop:20,
+    fontWeight:"bold",
   }
 })

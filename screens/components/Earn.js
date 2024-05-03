@@ -5,9 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { useFonts } from "expo-font";
 
 const Earn = ({navigation}) => {
-  const [fontsLoaded, fontError] = useFonts({
-    "Jersey15-Regular": require("../../assets/fonts/Jersey_15/Jersey15-Regular.ttf"),
-  });
+ 
   return (
     <TouchableOpacity style={styles.container} onPress={()=>navigation.navigate('Coins')}>
   <LinearGradient
@@ -15,8 +13,8 @@ const Earn = ({navigation}) => {
         colors={["#004aad", "#cb6ce6"]}
         style={styles.background}
       />
-         <Text  style={{color:'white',fontSize:30,fontFamily:'Jersey15-Regular',textAlign:'center'}}>Coins</Text>
-         <FontAwesome5 name="coins" size={30} color="yellow" style={{fontFamily:'Jersey15-Regular'}} />
+         <Text  style={{color:'white',fontSize:20,textAlign:'center',fontWeight:'bold'}}>Coins</Text>
+         <FontAwesome5 name="coins" size={30} color="yellow"  />
     </TouchableOpacity>
   )
 }

@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     text1:{
-        fontFamily:'Jersey15-Regular',
         fontSize:40,
+        fontWeight:"bold"
       },
       button:{
         backgroundColor:'white',

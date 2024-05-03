@@ -43,7 +43,7 @@ const RajaMantriGame = ({ route, navigation }) => {
 
   async function playSound() {
 
-    const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/clickSound.mp3')
+    const { sound } = await Audio.Sound.createAsync( require('./../../assets/clickSound.mp3')
     );
 
     await sound.playAsync();
@@ -51,7 +51,7 @@ const RajaMantriGame = ({ route, navigation }) => {
 
   async function playSpinSound() {
 
-    const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/paperFlip.mp3')
+    const { sound } = await Audio.Sound.createAsync( require('./../../assets/paperFlip.mp3')
     );
 
     await sound.playAsync();
@@ -788,9 +788,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    color: "white",
-    fontSize: 40,
-    fontFamily: "Jersey15-Regular",
+    color: "gray",
+    fontSize: 30,
+    fontWeight:'bold'
   },
   player1Name: {
     position: "absolute",

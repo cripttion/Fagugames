@@ -13,14 +13,14 @@ import { Audio } from 'expo-av';
     const [sound, setSound] = useState();
     const[emptyBox,setEmptyBox] = useState(9);
     async function playSound() {
-      const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/clickSound.mp3')
+      const { sound } = await Audio.Sound.createAsync( require('./../../assets/clickSound.mp3')
       );
       setSound(sound);
   
       await sound.playAsync();
     }
     async function playEndSound() {
-      const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/gameTie.mp3')
+      const { sound } = await Audio.Sound.createAsync( require('./../../assets/gameTie.mp3')
       );
       await sound.playAsync();
     }
@@ -107,7 +107,7 @@ import { Audio } from 'expo-av';
   }
   {winner&&
     <View style={styles.winnerbox}>
-        <Text style={{color:'white',fontSize:50, fontFamily: "Jersey15-Regular"}}>{winner==='X'?playerData.firstPlayer:playerData.secondPlayer} Win's</Text>
+        <Text style={{color:'white',fontSize:40, fontWeight:'bold',fontStyle:'italic'}}>{winner==='X'?playerData.firstPlayer:playerData.secondPlayer} Win's</Text>
         <TouchableOpacity onPress={restartGame}>
         <MaterialCommunityIcons name="restart" size={50} color="white" />
         </TouchableOpacity>
@@ -115,7 +115,7 @@ import { Audio } from 'expo-av';
   }
   {!winner&&emptyBox===0&&
     <View style={styles.winnerbox}>
-        <Text style={{color:'white',fontSize:50, fontFamily: "Jersey15-Regular"}}>It's a Draw</Text>
+        <Text style={{color:'white',fontSize:40, fontWeight:'bold',fontStyle:'italic'}}>It's a Draw</Text>
         <TouchableOpacity onPress={restartGame}>
         <MaterialCommunityIcons name="restart" size={50} color="white" />
         </TouchableOpacity>
@@ -162,8 +162,10 @@ const styles = StyleSheet.create({
       },
       text: {
         color: "white",
-        fontSize: 60,
-        fontFamily: "Jersey15-Regular",
+        fontSize: 40,
+        fontWeight:'bold',
+        fontStyle:"italic",
+       
       },
       player1Name: {
         position: "absolute",

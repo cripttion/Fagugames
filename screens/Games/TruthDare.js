@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import bottle from "./../../assets/banners/image.png";
+import bottle from "./../../assets/bottle.png";
 import Animated, {
   Easing,
   cancelAnimation,
@@ -18,7 +18,7 @@ const TruthDare = () => {
   const [temp, setTemp] = useState(0);
   const [sound,setSound] = useState();
   async function playSound() {
-    const { sound } = await Audio.Sound.createAsync( require('./../../assets/audio/bottleSpin.mp3')
+    const { sound } = await Audio.Sound.createAsync( require('./../../assets/bottleSpin.mp3')
     );
     setSound(sound);
     await sound.playAsync();
