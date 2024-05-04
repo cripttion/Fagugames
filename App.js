@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import TruthDare from "./screens/Games/TruthDare";
@@ -15,7 +15,6 @@ import RedBlueGame from "./screens/Games/RedBlueGame";
 import Winner from "./screens/Winner";
 import TicTacGame from "./screens/Games/TicTacGame";
 import RajaMantriGame from "./screens/Games/RajaMantriGame";
-import { useFonts } from "expo-font";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createNativeStackNavigator();
@@ -34,7 +33,7 @@ const App = () => {
  
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -54,7 +53,7 @@ const App = () => {
           <Stack.Screen name="RajaMantriGame" component={RajaMantriGame} />
         </Stack.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
