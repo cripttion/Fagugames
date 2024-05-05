@@ -13,7 +13,7 @@ Fagu Plays is a thrilling gaming app designed to bring joy and excitement to you
 ## Technologies Used
 
 - **Frontend:** React Native, Expo
-- **Backend:** Node.js, MongoDB (if applicable)
+
 
 ## Installation
 
