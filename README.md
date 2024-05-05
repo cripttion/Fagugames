@@ -7,7 +7,6 @@ Fagu Plays is a thrilling gaming app designed to bring joy and excitement to you
 ## Features
 
 - Play a variety of exciting games.
-- Share your scores and achievements with friends.
 - Discover new games added regularly.
 - Customize your gaming experience with in-app settings.
 
